@@ -9,20 +9,20 @@
  <h1 id="1">Tic Tac Toe </h1>
 </header>
 <main>
-  <section>
-     <div class="Board">
-     
-       <div class="Q1"> </div>
-       <div class="Q2"> </div>
-       <div class="Q3"> </div>
-       <div class="Q4"> </div>
-       <div class="Q5"> </div>
-       <div class="Q6"> </div>
-       <div class="Q7"> </div>
-       <div class="Q8"> </div>
-       <div class="Q9"> </div>
+  <section class="display">
+      Vez do jogador<span class="display-player JogadorX">   X</span>
+  </section>
+  <section class="container">
+       <div id="Q1" class="corpo"> </div>
+       <div id="Q2" class="corpo"> </div>
+       <div id="Q3" class="corpo"> </div>
+       <div id="Q4" class="corpo"> </div>
+       <div id="Q5" class="corpo"> </div>
+       <div id="Q6" class="corpo"> </div>
+       <div id="Q7" class="corpo"> </div>
+       <div id="Q8" class="corpo"> </div>
+       <div id="Q9" class="corpo"> </div>
        
-     </div>
   </section>
 </main>
 <footer>
@@ -31,7 +31,6 @@
 </body>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@300&family=Ubuntu&display=swap');
-@media (max-width: 1000px){
 *{
     margin:0;
     padding:0;
@@ -52,112 +51,137 @@ h1{
    position: relative;
    right: 15px;
 }
-#invite{
-   color: #EDEDED;
-   font-size: 25px;
-   text-align: center;
+
 }
 main{
     font-family: 'Ubuntu', sans-serif;
     width: 100%;
     text-align: center;
  }
-.Board{
-    width: 800px;
-    height: 900px;
-    border: none;
+ .container {
     margin: 0 auto;
-    margin-top: 150px;
-    display: block ;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    max-width: 600px;
+    height: 600px;
+    position: relative;
+    top: 300px;
 }
-.Q1{
-   border: 2px solid white; 
-   height: 270px;
-   width: 260px;
-   position: relative;
-   top: 10px;
-   left: 5px;
+.corpo{
+    border: 1px solid white;
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    cursor: pointer;
+}
+  
+
+#Q1{
    border-top: none;
    border-left:none;
 }
-.Q2{
-   border: 2px solid white; 
-   height: 270px;
-   width: 260px;
-   position: relative;
-   bottom: 262px;
-   left: 267px;
+#Q2{
    border-top: none;
 }
-.Q3{
-   border: 2px solid white; 
-   height: 270px;
-   width: 260px;
-   position: relative;
-   bottom: 533.9px;
-   left: 530px;
+#Q3{
    border-top: none;
    border-right: none;
 }
-.Q4{
-   border: 2px solid white; 
-   height: 270px;
-   width: 260px;
-   position: relative;
-   bottom: 535px;
-   left: 5px;
+#Q4{
    border-left: none;
 }
-.Q5{
-   border: 2px solid white; 
-   height: 270px;
-   width: 260px;
-   position: relative;
-   bottom: 808px;
-   left: 267px;
+#Q5{
+   
 }
-.Q6{
-   border: 2px solid white; 
-   height: 270px;
-   width: 260px;
-   position: relative;
-   bottom:1082px;
-   left: 530px;
+#Q6{
+   
    border-right: none;
 }
-.Q7{
-   border: 2px solid white; 
-   height: 270px;
-   width: 260px;
-   position: relative;
-   bottom:1082px;
-   left: 529px;
-   border-right: none;
+#Q7{
+  
+   border-left: none;
    border-bottom: none;
 }
-.Q8{
-   border: 2px solid white; 
-   height: 270px;
-   width: 260px;
-   position: relative;
-   bottom:1355px;
-   left: 267px;
+#Q8{
+  
    border-bottom: none;
    
 }
-.Q9{
-   border: 2px solid white; 
-   height: 270px;
-   width: 260px;
-   position: relative;
-   bottom:1627px;
-   left: 5px;
-   border-left: none;
+#Q9{
+   border-right: none;
    border-bottom: none;
 }
+.display{
+  min-width:30px;
+  min-height: 30px;
+  position: relative;
+  top: 60px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+}
+.display-player{
+  color: white;
+  font-size: 30px;
+  position: relative;
+  left: 7px;
+}
+.PlayerX{
+    color: Red;
+   
+}
+.PlayerO{
+ color: blue;
+ .
 }
 </style>
+<script>
+
+window.addEventListener('DOMContentLoaded',() =>{
+    
+const contai= document.querySelector(".container");  const Estrutura =Array.from(document.querySelectorAll(".corpo"));
+const playerDisplay=document.querySelector('.display-player')
+let Playeratual="X";
+let gameactive= true;
+const VitoriaX='Jogador X ganhou';
+const VitoriaO='Jogador O ganhou';
+const velha='Deu velha!';
+  
+let Board =['','','','','','','','','']
+const updateBoard= (index) =>{
+    Board[index]="Playeratual"
+}
+const action= (corpo, index)=>{
+    if(acaoValida(corpo)&& gameactive){
+       corpo.innerText=Playeratual;
+       corpo.classList.add(`Player{Playeratual}`);
+       updateBoard(index);
+       changePlayer();
+    }
+};
+
+const acaoValida=(corpo)=>{
+    if(corpo.innerText==='X' || corpo.innerText==='O'){
+        return false;
+    }
+    return true;
+};
+const changePlayer= ()=>{
+playerDisplay.classList.remove(`Player${Playeratual}`);    
+Playeratual = Playeratual === 'X' ? 'O' : 'X';
+playerDisplay.innerText= Playeratual;
+playerDisplay.classList.add(`Player${Playeratual}`)
+}
+
+Estrutura.forEach((corpo, index)=>{   corpo.addEventListener('click',()=>{ action(corpo, index)});
+});
+  
+ })
+</script>
 </html>
 
 
