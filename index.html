@@ -229,6 +229,11 @@ const condicoesdevitoria = [
  
  if (roundwon){
    Playeratual==='X' ? alert(VitoriaX):alert(VitoriaO);
+    Estrutura.forEach((corpo)=>{
+      corpo.innerText='';
+      corpo.classList.remove('PlayerX');
+      corpo.classList.remove('PlayerO')
+   })
  }
  if(!Board.includes('')){
    console.log("Deu velha")
@@ -236,6 +241,17 @@ const condicoesdevitoria = [
  };
 Estrutura.forEach((corpo, index)=>{   corpo.addEventListener('click',()=>{ action(corpo, index)});
 });
+const ResetButton=()=>{
+   Board = ['','','','','','','','',''];
+   gameactive=true;
+   if(Playeratual==='O'){
+       changePlayer();
+   }
+   Estrutura.forEach((corpo)=>{
+      corpo.innerText='';
+      corpo.classList.remove('PlayerX');
+      corpo.classList.remove('PlayerO')
+   })
 }
 Reset.addEventListener('click',ResetButton)
  })
