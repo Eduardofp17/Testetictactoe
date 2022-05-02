@@ -10,7 +10,7 @@
 </header>
 <main>
   <section class="display">
-      Vez do jogador<span class="display-player JogadorX">   X</span>
+      Vez do jogador<span class="display-player PlayerX">   X</span>
   </section>
   <section class="container">
        <div id="Q1" class="corpo"> </div>
@@ -236,11 +236,10 @@ const condicoesdevitoria = [
       corpo.classList.remove('PlayerO');
      
    })
- }
+ };
  if(!Board.includes('')){
    alert("Deu velha");
-   ResetButton;
-  }
+   ResetButton
  };
 Estrutura.forEach((corpo, index)=>{   corpo.addEventListener('click',()=>{ action(corpo, index)});
 });
