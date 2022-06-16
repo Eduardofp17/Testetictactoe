@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@300&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@300&family=Sedgwick+Ave&family=Ubuntu&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    border: none;
+}
+body{
+   background: #3D3D3D;
+}
+header{
+    width: 100%;
+    font-family: 'M PLUS 2', sans-serif;
+    color:white;
+}
+h1{
+   text-align: center;
+   font-size: 90px;
+   font-weight: 1500;
+   position: relative;
+   right: 15px;
+}
+
+
+main{
+    font-family: 'Ubuntu', sans-serif;
+    width: 100%;
+    text-align: center;
+ }
+ .container {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    max-width: 600px;
+    height: 600px;
+    position: relative;
+    top: 300px;
+}
+.corpo{
+    border: 1px solid white;
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    cursor: pointer;
+}
+  
+
+#Q1{
+   border-top: none;
+   border-left:none;
+}
+#Q2{
+   border-top: none;
+}
+#Q3{
+   border-top: none;
+   border-right: none;
+}
+#Q4{
+   border-left: none;
+}
+#Q6{
+   
+   border-right: none;
+}
+#Q7{
+  
+   border-left: none;
+   border-bottom: none;
+}
+#Q8{
+  
+   border-bottom: none;
+   
+}
+#Q9{
+   border-right: none;
+   border-bottom: none;
+}
+.display{
+  min-width:30px;
+  min-height: 30px;
+  position: relative;
+  top: 60px;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+}
+.display-player{
+  color: white;
+  font-size: 30px;
+  position: relative;
+  left: 7px;
+}
+.PlayerX{
+    color: Red;
+  font-family: 'Sedgwick Ave', cursive;
+}
+.PlayerO{
+ color: blue;
+ font-family: 'Sedgwick Ave', cursive;
+}
+.ResetBUTTON{
+    width: 100px;
+    position: relative;
+    top: 430px;
+    left:416px;
+}
+.Reset{
+   min-height: 60px;
+   min-width: 150px;
+   font-size: 30px;
+   font-family: 'M PLUS 2', sans-serif;
+   background-color:#79F539;
+   color: #62992E;
+}
+.Reset:hover{
+   background-color:#62992E;
+   color: #79F539;
+}
